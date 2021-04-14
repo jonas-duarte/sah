@@ -1,0 +1,79 @@
+#container {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 80px auto;
+  background-color: #65afff;
+
+  font-family: "Roboto", sans-serif;
+}
+
+#menu {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background-color: #ffffffcc;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000000ee;
+  border-right: 1px solid #ffffff33;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 300px;
+}
+
+.profile > img {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+#header {
+  grid-column: 2 / 3;
+
+  color: white;
+  background-color: #000000cc;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#table {
+  grid-column: 3 / 2;
+  grid-row: 2 / 3;
+}
+
+#table > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table > table > thead {
+  background-color: #000000cc;
+  color: white;
+}
+
+#table > table tr:nth-child(2n) {
+  background-color: #ffffff44;
+}
+
+#table > table tr:nth-child(2n + 1) {
+  background-color: #ffffff11;
+}
+
+#table > table th,
+#table > table td {
+  text-align: center;
+  padding: 5px;
+}

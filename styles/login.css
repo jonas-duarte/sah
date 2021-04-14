@@ -1,0 +1,35 @@
+#container {
+  background-image: url("../public/time.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 60%;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#login {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000077;
+}
+
+#login > form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 5px;
+  margin: 2rem;
+}
+
+#login > form > * {
+  margin: 5px;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,54 @@
+/* https://coolors.co/191716-65afff-efc88b-f05d5e-ffffff */
+
+body {
+  margin: 0;
+}
+
+.field {
+  display: flex;
+  background-color: white;
+  border-radius: 200px;
+  height: 2rem;
+}
+
+.field > label {
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #65afff;
+  height: 100%;
+}
+
+.field > input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0px 100px 100px 0px;
+  outline: none;
+  background-color: #65afff44;
+  box-sizing: border-box;
+  padding: 10px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+button,
+input[type="submit"] {
+  color: #ffffff;
+  text-shadow: 0px 0px 2px black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #65afff;
+  padding: 5px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #65afffcc;
+}
