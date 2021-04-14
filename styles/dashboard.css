@@ -50,7 +50,7 @@
 }
 
 #table {
-  grid-column: 3 / 2;
+  grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
@@ -76,4 +76,26 @@
 #table > table td {
   text-align: center;
   padding: 5px;
+}
+
+#table .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#table .buttons > button {
+  background-color: #000000cc;
+  margin: 3px;
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#table .buttons > button:hover {
+  background-color: #00000088;
 }

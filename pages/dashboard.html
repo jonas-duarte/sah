@@ -16,12 +16,15 @@
             <img src="../public/logo.svg" />
             <div class="profile">
                 <img src="../public/profile.jpg">
-                <div>Jonas</div>
             </div>
+            <div>Jonas</div>
+            <br>
+            <div>Trabalhador</div>
         </div>
         <div id="header">
-            <div>Período:</div>
-            <div>Total:</div>
+            <div>Data inicial:</div>
+            <div>Data final:</div>
+            <div>Justificativa:</div>
         </div>
         <div id="table">
             <table>
@@ -30,46 +33,35 @@
                         <th>Data</th>
                         <th>Inicio</th>
                         <th>Fim</th>
-                        <th>Tempo total</th>
-                        <th>Ajustar</th>
+                        <th>Justificativa</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>03/10/2021</td>
-                        <td>08:10:52</td>
-                        <td>18:07:52</td>
-                        <td>09:57:00</td>
-                        <td><i class="fa fa-edit"></i></td>
-                    </tr>
-                    <tr>
-                        <td>04/10/2021</td>
-                        <td>08:10:52</td>
-                        <td>18:07:52</td>
-                        <td>09:57:00</td>
-                        <td><i class="fa fa-edit"></i></td>
-                    </tr>
-                    <tr>
-                        <td>05/10/2021</td>
-                        <td>08:10:52</td>
-                        <td>18:07:52</td>
-                        <td>09:57:00</td>
-                        <td><i class="fa fa-edit"></i></td>
-                    </tr>
-                    <tr>
-                        <td>06/10/2021</td>
-                        <td>08:10:52</td>
-                        <td>18:07:52</td>
-                        <td>09:57:00</td>
-                        <td><i class="fa fa-edit"></i></td>
-                    </tr>
-                    <tr>
-                        <td>05/10/2021</td>
-                        <td>08:10:52</td>
-                        <td>18:07:52</td>
-                        <td>09:57:00</td>
-                        <td><i class="fa fa-edit"></i></td>
-                    </tr>
+                    <?php
+                    $history = findByToken($db, "history", $query["token"]);
+
+                    if ($history) {
+                        foreach ($history as $row) {
+
+                            $date = new DateTime($row["event_date"]);
+                            $formatedDate = $date->format('d/m/Y');
+
+                            echo "<tr>";
+                            echo "<td>{$formatedDate}</td>";
+                            echo "<td>{$row["event_start"]}</td>";
+                            echo "<td>{$row["event_end"]}</td>";
+                            echo "<td>{$row["justificatory"]}</td>";
+                            echo "<td>";
+                            echo "<div class='buttons'>";
+                            echo '<button><i class="fa fa-edit"></i></button>';
+                            echo '<button><i class="fa fa-trash"></i></button>';
+                            echo "</div>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -1,19 +1,35 @@
-function validateLogin(login, password) {
-    validate.email(login);
+function validateLogin(email, password) {
+  validate.email(email);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
+document.addEventListener("DOMContentLoaded", function () {
+  const token = localStorage.getItem("token");
 
-        const login = event.target.elements.email.value;
-        const password = event.target.elements.password.value;
+  if (token) {
+    http.get(`/token?token=${token}`).then(() => {
+      window.location.href = `/router.php/dashboard?token=${token}`;
+    });
+  }
 
-        console.log(login, password)
-        try {
-            validateLogin(login, password)
-        } catch (error) {
-            handleError(error)
-            event.preventDefault();
-        }
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = event.target.elements.email.value;
+      const password = event.target.elements.password.value;
+
+      try {
+        validateLogin(email, password);
+
+        http
+          .post(`/login?email=${email}&password=${password}`)
+          .then((token) => {
+            localStorage.setItem("token", token);
+            window.location.href = `/router.php/dashboard?token=${token}`;
+          });
+      } catch (error) {
+        handleError(error);
+      }
     });
 });
